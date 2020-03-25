@@ -11,3 +11,11 @@ def no_repeat(ls):
                 return (0,i,j)
     if d==0:
         return (1,0,0)
+def find_way(way):
+    if no_repeat(way)[0]==1:
+        return way
+    else:
+        m=max(no_repeat(way)[1],no_repeat(way)[2])
+        n=min(no_repeat(way)[1],no_repeat(way)[2])
+        del way[n:m]
+        return find_way(way)
