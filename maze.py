@@ -67,3 +67,31 @@ for i in range(len(way)):
         way=way[:i+1]
         break
 way=find_way(way)
+for row in range (0,num_rows):
+    for col in range(0,num_cols):
+        data=M[row,col]
+        for i in range(10*row+2,10*row+8):
+            image[i,range(10*col+2,10*col+8)]=3000
+        if data[0]==1:
+            image[range(10*row+2,10*row+8),10*col] = 3000
+            image[range(10*row+2,10*row+8),10*col+1] =3000
+        if data[2]==1:
+            image[range(10*row+2,10*row+8),10*col+9] = 3000
+            image[range(10*row+2,10*row+8),10*col+8] = 3000
+        if data[1]==1:
+            image[10*row,range(10*col+2,10*col+8)] = 3000
+            image[10*row+1,range(10*col+2,10*col+8)] = 3000
+        if data[3]==1:
+            image[10*row+9,range(10*col+2,10*col+8)] = 3000
+            image[10*row+8,range(10*col+2,10*col+8)] = 3000
+image[range(4,6),5]=1000
+image[5,range(4,6)]=1000
+image[range(4,6),4]=1000
+plt.imshow(image,cmap=cm.Pastel1_r)
+plt.show()
+for i in way:
+    image[range(10*i[0]+4,10*i[0]+6),10*i[1]+5]=2000
+    image[10*i[0]+5,range(10*i[1]+4,10*i[1]+6)]=2000
+    image[range(10*i[0]+4,10*i[0]+6),10*i[1]+4]=2000
+plt.imshow(image,cmap=cm.Pastel1_r)
+plt.show()
