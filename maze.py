@@ -19,3 +19,10 @@ def find_way(way):
         n=min(no_repeat(way)[1],no_repeat(way)[2])
         del way[n:m]
         return find_way(way)
+num_rows=int(input('请输入列数:'))
+num_cols=int(input('请输入行数:'))
+image=np.zeros((num_rows*10,num_cols*10),dtype=np.uint8)
+M=np.zeros((num_rows,num_cols,5),dtype=np.uint8)
+r,c=0,0
+history=[(0,0)]
+way=[]
